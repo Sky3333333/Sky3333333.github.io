@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Scene - A-Frame</title>
+    <meta name="description" content="Basic Scene - A-Frame" />
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="triceratops"
+      src="https://cdn.aframe.io/examples/ar/models/triceratops/scene.gltf"
+      response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="car"
+      src="https://cdn.glitch.global/18e73c0c-eb9e-4c14-bd79-6079761c73f5/scene.gltf?v=1657197165380"
+      response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <img
+          id="boxTexture"
+          src="https://cdn.glitch.global/1f6c4d39-b9a4-4152-8c8e-ca75080e1cb8/Simonton-Windows-Interior-Vinyl-Woodgrain-Oak.png?v=1656677798772"
+        />
+        <img
+          id="groundTexture"
+          src="https://cdn.aframe.io/a-painter/images/floor.jpg"
+          crossorigin="anonymous"
+        />
+        <img
+          id="skyTexture"
+          src="https://cdn.aframe.io/a-painter/images/sky.jpg"
+          crossorigin="anonymous"
+        />
+      </a-assets>
+
+      <a-box
+        position="-2 2 -25"
+        rotation="45 45 45"
+        scale="2 2 2"
+        color="#ffffff"
+        material="src: #boxTexture"
+             
+        task1="Make the bobbing of the cube/box faster"
+        
+        
+        task2="Make it rotate twice when clicked"
+        animation__click="property: rotation; from:45 45 45; to: 360 45 45; dur: 20000000; startEvents: click;"
+        
+        task3="Make the cube 50% bigger when the mouse / cursor is on it"
+        animation__mouseenter="property:scale;
+                                startEvents:mouseenter;
+                                dur:3;
+                                to:2 2 2;"
+
+        animation__mouseleave="property:scale;
+                                startEvents:mouseleave;
+                                dur:3000;
+                                to:0 0 0;"
+        
+        
+        animation__mouseenter2="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 500"
+             
+        animation__mouseleave2="property:
+              components.material.material.color; type: color; to: red; startEvents: mouseleave; dur: 500"
+        
+      >
+       
+      </a-box>
+
+      <!-- Task 4 : Move the sphere further away and change it's colour -->
+      <a-sphere position="3 375 250" radius="125" color="yellow"></a-sphere>
+
+      <!-- Task 5 : make the cylinder spin -->
+      <a-cylinder
+        position="-2 0.75 -25"
+        radius="0.5"
+        height="1.5"
+        color="#FFC65D"
+                  animation__mouseenter="property:scale;
+                                startEvents:mouseenter;
+                                dur:3;
+                                to:2 2 2;"
+                  animation__mouseleave="property:scale;
+                                startEvents:mouseleave;
+                                dur:3000;
+                                to:0 0 0;"
+      ></a-cylinder>
+
+      <a-sky
+        height="2048"
+        radius="100"
+        src="https://cdn.glitch.global/2c19deb4-7bee-40de-b799-aee1e480e5eb/bmc.png?v=1657007559782"
+        theta-length="90"
+        width="2048"
+        animation__mouseclick="property: position; to: 0 1000 0; loop:false;startEvents: click; dur: 1000"
+      >
+      
+      </a-sky>
+      <a-sky
+        height="2048"
+        radius="1000"
+        color="cyan"
+        theta-length="90"
+        width="2048"
+             
+                  
+             
+      >
+      
+      </a-sky>
+      
+      <a-torus-knot color="#B84A39" arc="180" p="5" q="7" radius="5" radius-tubular="0.1" position="0 10 15"
+                    
+                    animation__mouseenter="property:scale;
+                                startEvents:mouseenter;
+                                dur:3;
+                                to:2 2 2;"
+
+        animation__mouseleave="property:scale;
+                                startEvents:mouseleave;
+                                dur:3000;
+                                to:0 0 0;"
+                    
+                    ></a-torus-knot>
+      <a-light type="ambient" color="#445451"></a-light>
+      <a-light type="point" intensity="2" position="2 4 4"></a-light>
+      <!--<a-plane
+        src="#groundTexture"
+        rotation="-90 0 0"
+        height="1000"
+        width="1000"
+      ></a-plane>-->
+      <a-ring color="black" radius-inner="10" radius-outer="1000" rotation="-90 0 0"></a-ring>
+      <a-circle color="black" radius="10" rotation="90 0 0" position="0 50 0"
+                animation__mouseclick="property: position; to: 0 0 0; loop:false;startEvents: click; dur: 1000"
+                animation__mouseclickk="property: rotation; to: -90 0 0; loop:false;startEvents: click; dur: 1000"></a-circle>
+      <a-text
+        value="Turn Around"
+        color="#BBB"
+        position="-0.9 0.2 -15"
+        scale="1.5 1.5 1.5"
+              animation__mouseenter="property:scale;
+                                startEvents:mouseenter;
+                                dur:3;
+                                to:2 2 2;"
+              animation__mouseleave="property:scale;
+                                startEvents:mouseleave;
+                                dur:3000;
+                                to:0 0 0;"
+      ></a-text>
+<a-sky position="0 0 0" id="image-360" radius="10" src="https://cdn.glitch.global/2c19deb4-7bee-40de-b799-aee1e480e5eb/wp3244114-2540586806.jpg?v=1657008740073"
+        animation__mouseclick="property: position; to: 0 -15 0; loop:false;startEvents: click; dur: 1000"
+       ></a-sky>
+
+      
+      
+      <a-link href="index.html" position="10 4 -25" scale="1 1 1"></a-link>
+      
+      
+      
+      
+      
+      
+      <a-camera>
+        <!-- Task 6 : make the cursor purple -->
+        
+        <a-cursor color="#FF8888"></a-cursor>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
